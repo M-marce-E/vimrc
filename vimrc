@@ -138,6 +138,12 @@ map f :call ShowFuncName() <CR>
 "Map <Ctrl+L> (redraw screen) to also turn off search highlighting until the next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+"Cut/Copy/Paste use the standard hotkeys, but you don't change any of the other configuration options in GVim
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
 "Map Y to act like D and C, eg: to yank until EOL, rather than act as yy, which is the default
 map Y y$
 
@@ -156,7 +162,7 @@ map <silent> <F2> :set invnumber<cr>
 "To prevent Vim from inserting function key names literally when in insert mode
 :map! <F2> <Nop>
 
-"When you paste text into a terminal Vim with the mouse, it can't know it is coming from a paste. It is like text entered fast (key strokes), it applies all auto-indenting and auto-expansion of defined abbreviations to the input, resulting in often cascading indents of paragraphs. To prevent this F3 temporarily switch to paste mode 
+"When you paste text into a terminal Vim, it can't know it is coming from a paste. It is like text entered fast (key strokes), it applies all auto-indenting and auto-expansion of defined abbreviations to the input, resulting in often cascading indents of paragraphs. To prevent this F3 temporarily switch to paste mode 
 nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
 set showmode
