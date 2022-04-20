@@ -32,6 +32,10 @@ filetype plugin indent on
 "Highlight the current line in every window and update the highlight as the cursor moves
 set cursorline
 
+"Important for security (modelines are not guaranteed to be 100% secure)
+set modelines=0
+set nomodeline
+
 "Configure color scheme
 colorscheme koehler 
 
