@@ -29,6 +29,9 @@ syntax on
 "Enable file type detection and do language-dependent indenting
 filetype plugin indent on
 
+"Omni completion provides smart autocompletion for programs
+set omnifunc=syntaxcomplete#Complete
+
 "Highlight the current line in every window and update the highlight as the cursor moves
 set cursorline
 
@@ -104,6 +107,22 @@ set smartcase
 
 "A better menu in command mode
 set wildmenu
+
+"Ctrl+Space to autocomplete
+"https://stackoverflow.com/questions/2269005/how-can-i-change-the-keybinding-used-to-autocomplete-in-vim
+if has("gui_running")
+    " C-Space seems to work under gVim on both Linux and win32
+    inoremap <C-Space> <C-n>
+else " no gui
+  if has("unix")
+    inoremap <Nul> <C-n>
+  else
+  " I have no idea of the name of Ctrl-Space elsewhere
+  endif
+endif
+
+"Shift-tab to omnicomplete
+inoremap <S-TAB> <C-X><C-O>
 
 "Spacebar to hide portions of code that you’re not currently working on
 " Enable folding
